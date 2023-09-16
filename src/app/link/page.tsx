@@ -15,7 +15,7 @@ import * as z from 'zod'
 import {
   Form,
   FormControl,
-  FormDescription,
+
   FormField,
   FormItem,
   FormLabel,
@@ -34,16 +34,16 @@ import { setLinks } from '@/redux/reducer/Profile-slice'
 import { useApplicationForm } from '@/hook/links-platform'
 import { Textarea } from '@/components/ui/textarea'
 interface pageProps {
-  profileLink: { type: string; link: string }
+  profileLink?: { type: string; link: string }
 }
-// ;'youtube' | 'linkedin' | 'github' | ''
+
 
 const Page = ({ profileLink }: pageProps) => {
   const Links = useAppSelector((state) => state.user.Links)
 
   const dispatch = useAppDispatch()
   const [val, setVal] = useState<(typeof profileLink)[]>([])
-  const [valuesRedux, setvaluesRedux] = useState<(typeof profileLink)[]>([])
+
   const handleClick = () => {
     setVal([...val, { link: '', type: '' }])
   }
